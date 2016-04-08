@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="pokemon in pokemonList">
+		<figure class="text-center item" ng-click="showItem($index)">
+			<img ng-src="http://pokeapi.co/media/img/{{pokemon.pkdx_id}}.png" alt="Pokemon" width="120"
+			     height="120">
+			<figcaption>
+				<strong>{{pokemon.name}}</strong>
+			</figcaption>
+			<div class="text-left">
+					<span ng-repeat="type in pokemon.types" ng-class="type.name">
+						{{type.name}}
+					</span>
+			</div>
+		</figure>
+	</div>
+</div>
