@@ -17,19 +17,7 @@
 <body>
 
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<h1 class="text-center">Pokedex</h1>
-		</div>
-	</div>
-	<div class="row" ng-controller="controllerPokedex">
-		<div class="col-md-8 col-sm-8 col-xs-8">
-			<div ui-view></div>
-
-			<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="addPokemons()" ng-hide="isHide">Load more</button>
-		</div>
-		<div ng-include="'app/pokemon-list/pokemon.detail.html'"></div>
-	</div>
+	<div ui-view></div>
 </div>
 
 </body>

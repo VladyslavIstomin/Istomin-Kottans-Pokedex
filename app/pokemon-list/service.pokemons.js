@@ -9,9 +9,10 @@
 					if(data.meta.next) {
 						scope.urlNextChunk = data.meta.next;
 					} else {
-						scope.isHide = true;
+						scope.isHideBtn = true;
 					}
 					scope.pokemonList = data.objects;
+					scope.isLoading = false;
 				},
 
 				currentItemData: function(item, scope) {
@@ -29,7 +30,8 @@
 						console.log(data);
 						data.objects.forEach(function(el, i) {
 							scope.pokemonList.push(el);
-						})
+						});
+						scope.isHideIcon = true;
 					}).error(function () {
 						console.log('request Error')
 					});

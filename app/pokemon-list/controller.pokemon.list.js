@@ -5,7 +5,9 @@
 		.module('pokemonPokedexModule', [])
 		.controller('controllerPokedex', ['$scope', 'servicePokedex', '$http',
 			function ($scope, $servicePokedex, $http) {
-				$scope.isHide = true;
+				$scope.isLoading = true;
+				$scope.isHideBtn = true;
+				$scope.isHideIcon = true;
 				sendHttp();
 
 				$scope.showItem = function(index) {
@@ -15,6 +17,7 @@
 				$scope.showDetailBlock = false;
 
 				$scope.addPokemons = function() {
+					$scope.isHideIcon = false;
 					$servicePokedex.showAddingData($scope, $http, $scope.urlNextChunk);
 				};
 
@@ -26,7 +29,7 @@
 					}).success(function (data) {
 						console.log(data);
 						$servicePokedex.showData(data, $scope);
-						$scope.isHide = false;
+						$scope.isHideBtn = false;
 					}).error(function () {
 						console.log('request Error')
 					});
